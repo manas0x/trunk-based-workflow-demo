@@ -17,5 +17,11 @@ class DeploymentPageTests(unittest.TestCase):
         self.assertIn("https://gitflow-analyzer.onrender.com/", html)
 
 
+    def test_feature_flag_keeps_incomplete_behavior_disabled(self):
+        html = PAGE.read_text(encoding="utf-8")
+        self.assertIn("delivery-insights", html)
+        self.assertIn("incomplete behavior disabled", html)
+
+
 if __name__ == "__main__":
     unittest.main()
